@@ -2,10 +2,16 @@
 __pycache__/
 *.py[cod]
 *$py.class
-
+.env
+/media
+*/media
+*/__pycache__
+*/*/__pycache__
+*/*/*/__pycache__
+*/*/*/*/__pycache__
 # C extensions
 *.so
-
+db.sqlite3
 # Distribution / packaging
 .Python
 build/
