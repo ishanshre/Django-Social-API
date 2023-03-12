@@ -26,7 +26,8 @@ from drf_yasg import openapi
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('__debug__/', include('debug_toolbar.urls')),
-    path("auth/", include('accounts.urls'))
+    path("api/v1/auth/", include('accounts.urls')),
+    path("api/v1/", include('social_post.routers')),
 ]
 
 if settings.DEBUG:
