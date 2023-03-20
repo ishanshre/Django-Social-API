@@ -7,8 +7,9 @@ from django.contrib.auth import get_user_model
 User = get_user_model()
 
 class Post(models.Model):
-    content = models.CharField(max_length=1000)
-    avatar = models.ImageField(upload_to="post/image", null=True, blank=True)
+    title = models.CharField(max_length=255)
+    content = models.CharField(max_length=10000)
+    preview_pic = models.ImageField(upload_to="post/image", null=True, blank=True)
     caption = models.TextField()
     created_by = models.ForeignKey(User,on_delete=models.CASCADE, related_name="posts")
     created_at = models.DateTimeField(auto_now_add=True)

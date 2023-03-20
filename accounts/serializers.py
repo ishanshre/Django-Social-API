@@ -239,3 +239,7 @@ class PasswordResetSerializer(serializers.ModelSerializer):
         return attrs
     
     
+class UserInfoSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = User
+        fields = ['id','username','email']
