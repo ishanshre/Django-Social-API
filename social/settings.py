@@ -50,6 +50,7 @@ INSTALLED_APPS = [
     # local apps
     'accounts.apps.AccountsConfig',
     'social_post.apps.SocialPostConfig',
+    'friend.apps.FriendConfig'
 ]
 
 MIDDLEWARE = [

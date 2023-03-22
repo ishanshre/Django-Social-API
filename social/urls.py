@@ -28,6 +28,7 @@ urlpatterns = [
     path('__debug__/', include('debug_toolbar.urls')),
     path("api/v1/auth/", include('accounts.urls')),
     path("api/v1/", include('social_post.routers')),
+    path("api/v1/", include('friend.routers')),
 ]
 
 if settings.DEBUG:
