@@ -1,6 +1,6 @@
 from rest_framework import serializers
 
-from social_post.models import Post, Comment
+from social_post.models import Post, Comment, Like
 
 from accounts.serializers import UserInfoSerializer
 
@@ -51,3 +51,22 @@ class CommentSerializer(serializers.ModelSerializer):
     class Meta: 
         model = Comment
         fields = ['id', 'body','created_by', 'created_at', 'updated_at']
+
+class LikeSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Like
+        fields = ['id']
+    
+    def validate(self, attrs):
+        user = self.context['user']
+        post = self.context['post']
+        if Like.objects.filter(created_by=user, post=post).exists():
+            raise serializers.ValidationError({"error":"cannot like same post by same user more than one time"})
+        return super().validate(attrs)
+
+    def create(self, validated_data):
+        user = self.context['user']
+        post = self.context['post']
+        like = Like.objects.create(created_by=user, post=post)
+        like.save()
+        return like

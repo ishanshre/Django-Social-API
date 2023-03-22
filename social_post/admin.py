@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from social_post.models import Post, Comment
+from social_post.models import Post, Comment, Like
 # Register your models here.
 
 class CommentInline(admin.StackedInline):
@@ -11,3 +11,4 @@ class CommentInline(admin.StackedInline):
 class Post(admin.ModelAdmin):
     inlines = [CommentInline,]
     
+admin.site.register(Like)
