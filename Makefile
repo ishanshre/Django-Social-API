@@ -6,3 +6,6 @@ shell:
 
 migrate:
 	python manage.py migrate
+
+test:
+	python manage.py test
