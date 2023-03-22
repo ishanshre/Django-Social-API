@@ -5,6 +5,8 @@ A simple Social Web App API using Django and Django Rest Framework
 ```
 SECRET_KEY = "your django secret key"
 TOKEN_SECRET_KEY = "your token secret key"
+REDIS_HOST=127.0.0.1
+REDIS_PORT=6379
 ```
 
 ## Instructions
