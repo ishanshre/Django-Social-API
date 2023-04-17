@@ -29,6 +29,7 @@ urlpatterns = [
     path("api/v1/auth/", include('accounts.urls')),
     path("api/v1/", include('social_post.routers')),
     path("api/v1/", include('friend.routers')),
+    path("api/v1/", include('chat.routers')),
 ]
 
 if settings.DEBUG:

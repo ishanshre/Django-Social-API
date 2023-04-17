@@ -12,3 +12,6 @@ test:
 
 redis:
 	docker run -d -p 6379:6379 redis
+
+superuser:
+	python manage.py createsuperuser
