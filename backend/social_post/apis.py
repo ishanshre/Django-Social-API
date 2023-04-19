@@ -17,7 +17,11 @@ from social_post.permissions import IsOwnerOrReadOnly
 class PostModelViewSet(ModelViewSet):
     serializer_class = PostSerializer
     queryset = Post.objects.all()
-    permission_classes = [IsAuthenticatedOrReadOnly, IsOwnerOrReadOnly]
+    
+    def get_permissions(self):
+        if self.request.method in ('PUT','PATCH','DELETE'):
+            return [IsOwnerOrReadOnly()]
+        return [IsAuthenticatedOrReadOnly()]
 
     def get_serializer_class(self):
         if self.request.method == "POST":

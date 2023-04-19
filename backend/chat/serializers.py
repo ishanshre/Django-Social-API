@@ -15,9 +15,19 @@ class ChatSerializer(serializers.ModelSerializer):
         fields = [
             'id',
             'group',
+            'content',
             'from_user',
             'to_user',
             'read',
             'created_at',
             'updated_at',
+        ]
+
+
+class ChatEditSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Chat
+        fields = [
+            'id',
+            'content',
         ]
