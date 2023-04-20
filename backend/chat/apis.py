@@ -17,7 +17,7 @@ class ChatModelViewSet(ModelViewSet):
             return [IsAuthenticated(), IsChatSender()]
         return [IsAuthenticated()]
     
-    def get_serializer(self, *args, **kwargs):
+    def get_serializer_class(self, *args, **kwargs):
         if self.request.method in ['PUT', 'DELETE']:
             return ChatEditSerializer
         return ChatSerializer
